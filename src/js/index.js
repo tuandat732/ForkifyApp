@@ -10,7 +10,8 @@ import { elements, renderLoader, clearLoader } from './views/base';
  * - Shopping list obj
  * - Liked recipes
  * **/
-const state = {}
+const state = {};
+window.state = state
 
 
 /**
@@ -75,9 +76,11 @@ const controlRecipe = async () => {
         // 2. Create new recipe object
         state.recipe = new Recipe(id);
 
-        // 3. Get recipe data
+        
         try {
+            // 3. Get recipe data and parse ingredients
             await state.recipe.getRecipe();
+            state.recipe.parseIngredients();
 
             // 4. Calc servings and time
             state.recipe.calcTime();
@@ -86,7 +89,8 @@ const controlRecipe = async () => {
             // 5. Render recipe
             console.log(state.recipe);
         } catch (error) {
-            alert('Error processing recipe!')
+            console.log(error)
+            // alert('Error processing recipe!')
         }
     }
 }
