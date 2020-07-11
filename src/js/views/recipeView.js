@@ -9,7 +9,7 @@ const formatCount = count => {
     if(count) {
         // count = 2.5 => 2 1/2
         // 0.5 => 1/2
-        const {int,dec} = count.toString().split('.').map(el=>parseInt(el,10));
+        const [int,dec] = count.toString().split('.').map(el=>parseInt(el,10));
 
         if(!dec) return count;
         if(int === 0) {

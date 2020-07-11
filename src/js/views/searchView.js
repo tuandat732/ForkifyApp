@@ -12,10 +12,10 @@ export const clearResults = () => {
 export const highlightSelected = id => { // active item đang chọn
     const resultsArr = Array.from(document.querySelectorAll('.results__link'));
     resultsArr.forEach(el => {
-        el.classList.remove('results__lick--active');
+        el.classList.remove('results__link--active');
     })
 
-    document.querySelector(`a[href="#${id}"]`).classList.add('results__lick--active'); // item ko có luôn sau khi load dom => ko query sẳn dc trong base.js
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active'); // item ko có luôn sau khi load dom => ko query sẳn dc trong base.js
 }
 
 /*
