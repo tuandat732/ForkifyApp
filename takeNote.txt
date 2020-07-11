@@ -1,0 +1,1 @@
+- Trong thẻ a có href mà có kí tự # thì sẽ hiểu là link đến thẻ có id là giá trị ở sau # => web ko bị reload
