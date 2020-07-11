@@ -9,6 +9,15 @@ export const clearResults = () => {
     elements.searchResPage.innerHTML = '';
 }
 
+export const highlightSelected = id => { // active item đang chọn
+    const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+    resultsArr.forEach(el => {
+        el.classList.remove('results__lick--active');
+    })
+
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__lick--active'); // item ko có luôn sau khi load dom => ko query sẳn dc trong base.js
+}
+
 /*
 // title: pasta with tomato and spinach
     acc: 0 / acc+ cur.length = 5 / newTitle = ['pasta']
