@@ -105,3 +105,20 @@ const controlRecipe = async () => {
 // window.addEventListener('hashchange', controlRecipe); // haschange là sự kiện url thay đổi query sau #
 // window.addEventListener('load', controlRecipe);
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
+
+
+// Handling recipe button clicks 
+elements.recipe.addEventListener('click', (e) => {
+    if (e.target.matches('.btn-decrease, .btn-decrease *')) {// ko dùng closest ở đây vì trong recipe có nhiều btn có nhiều tác dụng khác nhau như dec,inc, like,add to list
+        // Decrease btn is clicked
+        console.log('b1')
+        if (state.recipe.servings > 1)
+            state.recipe.updateServings('dec');
+    } else if (e.target.matches('.btn-increase, .btn-increase *')) { // btn-increase and any btn-increase's child
+        // Decrease btn is clicked
+        state.recipe.updateServings('inc');
+    }
+    // update Servings and Ingredients in UI
+    recipeView.updateServingsIngredients(state.recipe);
+})
+

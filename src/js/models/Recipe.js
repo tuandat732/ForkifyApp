@@ -102,4 +102,16 @@ export default class Recipe {
         });
         this.ingredients = newIngredients;
     }
+
+    updateServings(type) { // cập nhật công thức tương ứng với số khẩu phần ăn
+        // Servings
+        console.log(this.servings)
+        const newServings = type === 'dec' ? this.servings - 1 : this.servings + 1;
+
+        // Ingredients
+        this.ingredients.forEach(ing => {
+            ing.count *= (newServings / this.servings);
+        });
+        this.servings = newServings;
+    }
 }
