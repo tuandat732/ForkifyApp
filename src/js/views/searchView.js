@@ -15,7 +15,7 @@ export const highlightSelected = id => { // active item đang chọn
         el.classList.remove('results__link--active');
     })
 
-    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active'); // item ko có luôn sau khi load dom => ko query sẳn dc trong base.js
+    document.querySelector(`.results__link[href*="#${id}"]`).classList.add('results__link--active'); // item ko có luôn sau khi load dom => ko query sẳn dc trong base.js
 }
 
 /*
@@ -24,7 +24,7 @@ export const highlightSelected = id => { // active item đang chọn
     acc: 5 / acc+ cur.length = 9 / newTitle = ['pasta','with']
     ...
 */
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if (title.length > limit) {
         title.split(' ').reduce((acc, cur) => {
