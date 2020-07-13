@@ -1,9 +1,9 @@
-import {elements} from './base';
-import {limitRecipeTitle} from './searchView';
+import { elements } from './base';
+import { limitRecipeTitle } from './searchView';
 
-export const toggleLikeBtn = isLiked =>{
-    const iconString = isLiked ? 'icon-heart':'icon-heart-outlined';
-    document.querySelector('.recipe__love use').setAttribute('href',`img/icons.svg#${iconString}`);
+export const toggleLikeBtn = isLiked => {
+    const iconString = isLiked ? 'icon-heart' : 'icon-heart-outlined';
+    document.querySelector('.recipe__love use').setAttribute('href', `img/icons.svg#${iconString}`);
 };
 
 export const toggleLikeMenu = numLikes => {
@@ -24,11 +24,10 @@ export const renderLike = like => {
         </a>
     </li>
     `;
-    elements.likesList.insertAdjacentHTML('beforeend',markup);
+    elements.likesList.insertAdjacentHTML('beforeend', markup);
 };
 
 export const deleteLike = id => {
-    console.log(id)
     const el = document.querySelector(`.likes__link[href*="${id}"]`).parentElement; // * ở đây là lấy tất cả .likes__link có fref chứa id kia
-    if(el) el.parentElement.removeChild(el)
+    if (el) el.parentElement.removeChild(el)
 }
